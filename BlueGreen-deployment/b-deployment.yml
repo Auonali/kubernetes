@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue-deployment
+  namespace: bg-namespace
+  labels:
+    app: online-shop-blue
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: online-shop-blue
+  template:
+    metadata:
+      labels:
+        app: online-shop-blue
+    spec:
+      containers:
+        - image: amitabhdevops/online_shop_without_footer
+          name: online-shop-blue
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+            requests:
+              cpu: "200m"
+              memory: "256Mi"

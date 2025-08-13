@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: blue-service
+  namespace: bg-namespace
+spec:
+  selector:
+    app: online-shop-blue
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 3001
+      targetPort: 3000
+      nodePort: 30001
+
